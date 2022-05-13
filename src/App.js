@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react';
+import UserData from './components/UserData.js';
+import Login from './components/Login.js';
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
 
 function App() {
+  const [loginStatus, setloginStatus] = useState(0);
+
+  //return the App file
+  const getLoginStatus = (status) => {
+    setloginStatus(status);
+    console.log(loginStatus);
+  };
+
+  // useEffect(() => {}, [loginStatus]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {loginStatus === 1 ? (
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path='/'
+              element={<UserData statushandler={getLoginStatus} />}
+            ></Route>
+          </Routes>
+        </BrowserRouter>
+      ) : (
+        <Login statushandler={getLoginStatus} />
+      )}
     </div>
   );
 }

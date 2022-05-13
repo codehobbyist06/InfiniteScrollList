@@ -1,0 +1,37 @@
+body{
+    background-color: lightgreen;
+}
+
+.app{
+    display: grid;
+    background-color: #AEECEF;
+    grid-template-columns: 1fr 1fr;
+}
+
+.logout-button {
+    position: fixed;
+    width: 100px;
+    height: 30px;
+    margin-top: 40px;
+    margin-left: 400px
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        background-color: lred;
+    }
+
+    .app {
+        display: grid;
+        background-color: #AEECEF;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .logout-button {
+        position: fixed;
+        width: 70px;
+        height: 20px;
+        margin-top: 40px;
+        margin-left: 210px
+    }
+}
